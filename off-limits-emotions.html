@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Off-Limits Emotion | TalentSmartEQ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --navy:#002D61; --navy-2:#0D2A4E; --night:#04152B; --green:#0ACC8B; --green-ink:#00885F;
+  --cyan:#22ACC7; --orange:#FFA53B; --slate:#5A6A82; --mist:#B9D2EB;
+  --ink:#0C1A2B; --ink-2:#40566F; --hair:#E2E8F0; --ground:#FFFFFF; --soft:#F4F7FB;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--ink:#EAF1F8;--ink-2:#B2C4D8;--hair:#1F3549;--ground:#091622;--soft:#10202F;--green-ink:#0ACC8B}
+}
+:root[data-theme="dark"]{--ink:#EAF1F8;--ink-2:#B2C4D8;--hair:#1F3549;--ground:#091622;--soft:#10202F;--green-ink:#0ACC8B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Roboto,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--green-ink)}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.nav{background:var(--night)}
+.nav .in{max-width:1180px;margin:0 auto;padding:.85rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.mark{font-weight:900;letter-spacing:-.01em;color:#fff}.mark span{color:var(--green)}
+.nav a{color:#C6DAF0;font-size:.85rem;text-decoration:none}.nav a:hover{color:#fff}
+
+.stage{background:radial-gradient(90% 70% at 50% 45%,#0B3566 0%,#04152B 70%);color:#fff;padding:2.4rem 1.3rem 2rem}
+.stage .in{max-width:1180px;margin:0 auto}
+.stage h1{font-weight:900;font-size:clamp(1.8rem,4.4vw,2.7rem);line-height:1.1;letter-spacing:-.015em;margin:0 0 .7rem;max-width:22ch;text-wrap:balance}
+.stage .lede{color:var(--mist);max-width:64ch;margin:0 0 1.6rem;font-size:1.02rem}
+.stage .lede b{color:#fff}
+.graphwrap{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:1.4rem;align-items:stretch}
+@media (max-width:940px){.graphwrap{grid-template-columns:1fr}}
+.graph{position:relative;min-height:520px}
+.graph svg{display:block;width:100%;height:100%;min-height:520px;touch-action:none}
+.hint{position:absolute;left:0;bottom:.2rem;font-size:.78rem;color:#7F9CBB}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.8rem;color:var(--mist);margin-top:.9rem}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%}
+.legend .lvl i{background:none;border:2px solid #CFE0F2}
+.legend .lvl.h i{background:#CFE0F2}
+.legend .lvl.m i{background:rgba(207,224,242,.45)}
+
+/* detail panel */
+.panel{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1.2rem 1.3rem;backdrop-filter:blur(6px);align-self:start}
+.panel .k{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mist);margin:0 0 .25rem}
+.panel h2{font-weight:900;font-size:1.6rem;line-height:1.15;margin:0 0 .2rem}
+.panel .big{font-weight:900;font-size:2.6rem;line-height:1;margin:.5rem 0 .2rem}
+.panel .sub{font-size:.86rem;color:var(--mist);margin:0 0 1rem}
+.panel h3{font-size:.85rem;font-weight:700;margin:1.1rem 0 .45rem;color:#fff}
+.bar{display:grid;grid-template-columns:6.4rem minmax(0,1fr) 3rem;gap:.5rem;align-items:center;font-size:.82rem;color:#D7E5F3;margin:.3rem 0}
+.bar .t{display:block;height:10px;background:rgba(255,255,255,.1);border-radius:5px;overflow:hidden}
+.bar .f{display:block;height:100%;border-radius:5px;transition:width .6s cubic-bezier(.3,1.2,.5,1)}
+.bar .v{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.sig{display:inline-block;font-size:.7rem;font-weight:700;color:#04152B;background:var(--green);border-radius:20px;padding:.05rem .5rem;margin-left:.35rem;vertical-align:1px}
+.ns{display:inline-block;font-size:.7rem;color:var(--mist);margin-left:.35rem}
+.q{border-left:3px solid var(--qc,#0ACC8B);padding:.1rem 0 .1rem .7rem;margin:.55rem 0;font-size:.86rem;color:#E4EEF8;font-style:italic}
+.panel p{margin:.4rem 0;font-size:.88rem;color:#D7E5F3}
+
+main{max-width:1180px;margin:0 auto;padding:2.6rem 1.3rem 3rem}
+main h2{font-weight:700;font-size:1.5rem;margin:0 0 .3rem}
+main h2::after{content:"";display:block;width:56px;height:4px;background:var(--green);margin-top:.6rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:1.4rem}
+.cols p{color:var(--ink-2);margin:0 0 .8rem}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:.6rem}
+th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--hair)}
+th{font-weight:700;color:var(--ink-2);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:.5rem}
+.note{font-size:.8rem;color:var(--ink-2);margin-top:1.4rem;border-top:1px solid var(--hair);padding-top:1rem}
+
+/* graph styling */
+.link{stroke:rgba(185,210,235,.22)}
+.link.hub{stroke:rgba(185,210,235,.35)}
+.node{cursor:pointer}
+.node text{pointer-events:none;fill:#fff;font-family:Roboto,Arial,sans-serif}
+.node .lbl{font-weight:700}
+.node .pc{font-weight:900}
+.dim .node:not(.on){opacity:.22}
+.dim .link:not(.on){opacity:.12}
+.link.on{stroke:rgba(255,255,255,.6)}
+.halo{opacity:.18}
+.pulse{fill:#fff;opacity:.9;pointer-events:none}
+@media (prefers-reduced-motion:reduce){.bar .f{transition:none}}
+
+/* essay */
+.essay{max-width:720px;margin:0 auto 3.4rem}
+.essay p{font-size:1.08rem;line-height:1.75;margin:0 0 1.15rem;color:var(--ink)}
+.essay .kick{font-size:1.35rem;line-height:1.5;font-weight:500;color:var(--navy)}
+.essay h2{margin:2.4rem 0 1rem}
+.essay sup a{text-decoration:none;font-weight:700}
+.essay .levels{padding-left:1.3rem;margin:0 0 1.2rem}
+.essay .levels li{font-size:1.05rem;line-height:1.7;margin:.5rem 0}
+.essay .levels li::marker{color:var(--green-ink);font-weight:700}
+.essay .close{font-size:1.2rem;font-weight:500;color:var(--navy);border-left:4px solid var(--green);padding-left:1rem;margin-top:1.6rem}
+.essay .fn{font-size:.84rem;line-height:1.6;color:var(--ink-2);border-top:1px solid var(--hair);padding-top:1rem;margin-top:2.4rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .essay .kick,:root:not([data-theme="light"]) .essay .close{color:#9DC0E8}}
+:root[data-theme="dark"] .essay .kick,:root[data-theme="dark"] .essay .close{color:#9DC0E8}
+.chart{margin:2rem 0;padding:1.4rem 1.5rem 1.1rem;background:var(--soft);border-radius:10px}
+.chart figcaption{font-weight:700;font-size:1rem;margin-bottom:1rem}
+.cgrp{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:.9rem 0 .3rem}
+.crow{display:grid;grid-template-columns:7rem minmax(0,1fr) 3.2rem;gap:.7rem;align-items:center;margin:.35rem 0;font-size:.95rem}
+.crow .t{display:block;height:22px;background:var(--hair);border-radius:4px;overflow:hidden}
+.crow .f{display:block;height:100%;border-radius:4px;background:#FFA53B;width:0;transition:width .9s cubic-bezier(.3,1.1,.5,1)}
+.crow .f.lo{background:#FFD29E}
+.crow .v{font-weight:900;text-align:right;font-variant-numeric:tabular-nums}
+.chart-note{font-size:.8rem!important;color:var(--ink-2)!important;margin:.9rem 0 0!important}
+.cta{max-width:1180px;margin:0 auto 3.4rem;background:var(--night);color:#fff;border-radius:10px;padding:1.5rem 1.8rem;display:flex;gap:1.4rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h2{color:#fff;font-size:1.3rem;margin:0 0 .3rem}.cta h2::after{display:none}
+.cta p{margin:0;color:var(--mist);font-size:.92rem}
+.btn{background:var(--green);color:#04152B;font-weight:700;text-decoration:none;border-radius:6px;padding:.7rem 1.15rem;white-space:nowrap}
+.btn:hover{background:#3FE0AB}
+.method-h{margin-top:0}
+.ref-h{font-size:1.05rem;font-weight:700;margin:1.6rem 0 .6rem}
+.tblwrap{overflow-x:auto}
+.official{min-width:620px;font-size:.86rem}
+.official thead th{background:var(--navy);color:#fff;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem}
+.official tbody th{background:var(--soft);font-weight:700;vertical-align:middle;text-transform:uppercase;font-size:.75rem;letter-spacing:.05em}
+.official td{vertical-align:top;line-height:1.55;border-left:1px solid var(--hair)}
+.gnote{font-size:.84rem;color:var(--mist);margin:.6rem 0 0;max-width:80ch}
+.ref{max-width:900px;margin:3rem 0 0;padding-top:2rem;border-top:1px solid var(--hair)}
+.ref p{color:var(--ink-2);margin:0 0 .9rem;max-width:75ch}
+.reftbl td{vertical-align:top}
+.refnote{font-size:.85rem}
+.cite{font-size:.88rem;background:var(--soft);border-radius:8px;padding:.8rem 1rem;margin-top:1rem!important}
+</style>
+</head>
+<body>
+<header class="nav"><div class="in">
+  <div class="mark">TalentSmart<span>EQ</span></div>
+  <a href="../index.html">&larr; The American Emotions Survey</a>
+</div></header>
+
+<section class="stage">
+  <div class="in">
+    <h1>Anger feels off-limits at work. For some of us more than others.</h1>
+    <p class="lede">We asked 1,188 working Americans which emotion feels most off-limits at work. Of the <b id="nNamed"></b> who named one, <b id="angryPct"></b> named a form of anger. Explore how every answer maps to the five core emotions.</p>
+    <div class="graphwrap">
+      <div class="graph">
+        <svg id="g" role="img" aria-labelledby="gdesc"></svg>
+        <p id="gdesc" style="position:absolute;left:-9999px">Network of off-limits emotions: five core emotions connected to the specific emotions respondents named. Angry is by far the largest. A table version follows below.</p>
+        <span class="hint">Click any emotion to explore. Drag to rearrange.</span>
+      </div>
+      <aside class="panel" id="panel" aria-live="polite"></aside>
+    </div>
+    <div class="legend" id="legend"></div>
+    <p class="gnote" id="gnote"></p>
+  </div>
+</section>
+
+<main>
+  <article class="essay">
+    <p class="kick">Ask a room full of employees which emotion feels most off-limits at work, and they&rsquo;ll likely say anger.</p>
+    <p>In the American Emotions Survey of over 1,000 working Americans, anger was named the most off-limits workplace emotion by a wide margin. Of the <span class="v-named"></span> who named an emotion, <span class="v-angry"></span> pointed to it, more than sadness, fear, and every other emotion combined.</p>
+    <p>The reasons were what you&rsquo;d expect. People said anger is unprofessional, leads to things they regret, and damages the mood in the room.</p>
+    <p>I wasn&rsquo;t surprised that anger topped the list. What made me curious was who chose it. When I broke the data down, I found that the people most convinced they can&rsquo;t show anger are the people with the least power.</p>
+
+    <h2>Anger and Leadership</h2>
+    <p>Among employees who aren&rsquo;t in leadership roles, <span class="v-non"></span> said anger was off-limits. Among leaders, that dropped to <span class="v-lead"></span>. That&rsquo;s a statistically significant gap, and it points to something most of us have felt: at work, anger is a privilege of rank.</p>
+    <p>Lower in the hierarchy, visible anger is a risk.<sup><a href="#fn1" id="fnref1">*</a></sup> Without the skills to express it effectively, anger can be read as incompetence, insubordination, or instability, and it can become a reason to be passed over. In charge, the same emotion, and sometimes the same behavior, carries different weight. It can look like passion, conviction, or high standards.</p>
+
+    <h2>Anger &amp; Gender</h2>
+    <p>Next I looked at gender. Most of the time I don&rsquo;t find meaningful differences between men and women. This time I did. Women were significantly more likely than men to say anger was off-limits (<span class="v-women"></span> vs. <span class="v-men"></span>). And men were nearly twice as likely as women to say vulnerability or fear was the emotion they couldn&rsquo;t show at work.</p>
+
+    <figure class="chart" aria-labelledby="chart-cap">
+      <figcaption id="chart-cap">Workers naming anger as the most off-limits workplace emotion, by leadership role and gender</figcaption>
+      <div id="angerChart"></div>
+      <p class="chart-note">Share of respondents who named an emotion. Both gaps are statistically significant (p &lt; .001).</p>
+    </figure>
+
+    <h2>So, Who Gets to Be Angry at Work?</h2>
+    <p>That&rsquo;s the wrong question. Anger is an emotion and it carries information. It can tell us if something important is being blocked, ignored, or treated unfairly. In <i>Friction: How Tension, Emotion, and Change Reveal Better Leaders</i>, Maggie Sass &amp; Ross Blankenship make the case that these tense moments are where leaders are revealed. Anger is one of the clearest signals that friction is present. When people feel they have to hide it, the signal gets lost and so does the chance to act on it.</p>
+
+    <h2>Why This Matters for Anyone Who Leads</h2>
+    <p>When a large share of your workforce believes an entire category of emotion is unsafe to express, you haven&rsquo;t eliminated that emotion. Suppressed anger shows up as disengagement, gossip, attrition, and the resignation letter that seems to come out of nowhere. Anger expressed poorly does the same damage.</p>
+    <p><i>Friction</i> organizes its practices into three levels, and they map well onto this data:</p>
+    <ol class="levels">
+      <li><b>Internal.</b> Notice your own anger early and name what it&rsquo;s telling you before it drives your behavior.</li>
+      <li><b>Interpersonal.</b> Express anger in a way that addresses the problem without damaging the relationship, and respond with curiosity when someone brings their frustration to you.</li>
+      <li><b>Systemic.</b> Look at the unwritten rules on your team. If only leaders and men can show frustration safely, your culture is filtering out valuable information from everyone else.</li>
+    </ol>
+    <p>The leaders who handle this best don&rsquo;t ban anger or indulge it. They&rsquo;ve built emotional intelligence skills: reading emotion accurately, staying composed under pressure, and creating enough safety that people don&rsquo;t have to hide what they feel until it&rsquo;s too late to address.</p>
+    <p class="close">The issue was never whether certain emotions belong at work. It&rsquo;s whether your organization has taught people what to do with them.</p>
+
+    <p class="fn" id="fn1"><a href="#fnref1">*</a> To read more about the history of anger at work and current views on it, see Roni Porat and Elizabeth Levy Paluck, &ldquo;Anger at Work,&rdquo; <i>Frontiers in Social Psychology</i> 2 (2024), Article 1337715, <a href="https://doi.org/10.3389/frsps.2024.1337715" target="_blank" rel="noopener">https://doi.org/10.3389/frsps.2024.1337715</a>. Their studies find that workers who express anger are generally judged as less competent and less deserving of status, and that anger is seen as inappropriate except in response to clear wrongdoing.</p>
+  </article>
+
+  <div class="cta"><div><h2>Read the book behind the research</h2><p><i>Friction</i> shows how tension, emotion and change reveal better leaders.</p></div><a class="btn" href="https://www.talentsmarteq.com/leading-through-friction/" target="_blank" rel="noopener">Leading Through Friction</a></div>
+
+  <h2 class="method-h">How we grouped the answers</h2>
+  <div class="cols">
+    <div>
+      <p>The question was open-ended: &ldquo;Which emotion feels most off-limits in your workplace, and why?&rdquo; We sorted every answer into five core emotions: happy, sad, angry, afraid and ashamed. Each comes in high, medium and low intensity. Rage is high-intensity anger, frustration is medium and irritation is low. We coded only the emotion each person named, not words in their explanation. <a href="#five-core">Why these five categories?</a></p>
+      <p id="groupnote"></p>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th>Core emotion</th><th class="n">Named it</th><th class="n">Non-leaders</th><th class="n">Leaders</th><th class="n">Women</th><th class="n">Men</th></tr></thead>
+        <tbody id="tbl"></tbody>
+      </table>
+    </div>
+  </div>
+  <section class="ref" id="five-core" aria-labelledby="five-core-h">
+    <h2 id="five-core-h">About the five core emotions</h2>
+    <p>People describe the same feeling in many different words. One person says &ldquo;rage,&rdquo; another &ldquo;frustration,&rdquo; another &ldquo;disdain,&rdquo; and all three are pointing at anger. To compare answers fairly, we grouped them using the feeling-words table in <i>Emotional Intelligence 2.0</i>, TalentSmartEQ&rsquo;s framework for building emotional vocabulary. It organizes hundreds of feeling words under five core emotions, each at three levels of intensity.</p>
+    <p>We used it for three reasons. It is the same framework TalentSmartEQ uses to teach people to recognize their emotions, so the results connect directly to how emotional intelligence is developed. It treats intensity as part of an emotion rather than a separate one, so irritation and rage count as the same underlying feeling. And it gives every answer a clear, repeatable home, so anyone can check how an answer was coded.</p>
+    <table class="reftbl">
+      <thead><tr><th>Core emotion</th><th>High intensity</th><th>Medium intensity</th><th>Low intensity</th></tr></thead>
+      <tbody id="reftbl"></tbody>
+    </table>
+    <p class="refnote">The table shows the specific emotions respondents named in this survey, grouped the way we coded them. Vulnerability isn&rsquo;t in the table; we grouped it with afraid, next to &ldquo;insecure.&rdquo; Emotions such as rage, love and pride aren&rsquo;t listed either; each was placed with the closest feeling in the table.</p>
+    <p class="cite"><b>Reference:</b> Bradberry, T., &amp; Greaves, J. (2009). <i>Emotional Intelligence 2.0</i>. TalentSmart. The full Five Core Feelings table, with every feeling word at each intensity, appears in the book.</p>
+  </section>
+
+  <p class="note">Source: The American Emotions Survey, TalentSmartEQ. 1,188 working U.S. adults, October 2025 to January 2026. &ldquo;Significant&rdquo; means a chi-square test gave p &lt; .05.</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+var DATA = {
+ "n_all": 1188,
+ "n_named": 1000,
+ "n_no_answer": 61,
+ "n_other": 127,
+ "cores": [
+  {
+   "name": "Angry",
+   "n": 670,
+   "pct": 67.0,
+   "pct_all": 56.397,
+   "split": {
+    "Leaders": 59.305,
+    "Non-leaders": 74.364,
+    "Women": 72.385,
+    "Men": 62.016,
+    "p_role": 5.872994198439887e-07,
+    "p_gender": 0.0006583525327476039
+   },
+   "intensity": {
+    "High": 3.7,
+    "Medium": 64.6,
+    "Low": 0.1
+   },
+   "words": [
+    {
+     "name": "Rage",
+     "intensity": "High",
+     "n": 36,
+     "pct": 3.6,
+     "quotes": [
+      "Rage because it destroys team effort",
+      "Rage...because it affects the work",
+      "Rage.  I work with customers so it's not good for them to see that."
+     ]
+    },
+    {
+     "name": "Hate",
+     "intensity": "High",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Anger",
+     "intensity": "Medium",
+     "n": 622,
+     "pct": 62.2,
+     "quotes": [
+      "Anger. I just think it's unprofessional to bring anger or negativity to work.",
+      "Anger because it has a negative effect on those around you",
+      "Anger, because it’s a public space."
+     ]
+    },
+    {
+     "name": "Mad",
+     "intensity": "Medium",
+     "n": 7,
+     "pct": 0.7,
+     "quotes": [
+      "Because people make me mad and I can't do anything",
+      "It would be most inappropriate to be mad or angry at work.",
+      "My angre cuz i cant get mad so i hold everything in"
+     ]
+    },
+    {
+     "name": "Upset",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Angry and upset because it's a workplace"
+     ]
+    },
+    {
+     "name": "Frustration",
+     "intensity": "Medium",
+     "n": 25,
+     "pct": 2.5,
+     "quotes": [
+      "Any type of frustration because of risk of losing job",
+      "Anger and frustration do no good at work. It discourages other employees and production decreases",
+      "Anger and frustration feels the most off limits because it effects productivity"
+     ]
+    },
+    {
+     "name": "Disgust",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Disdain",
+     "intensity": "Medium",
+     "n": 2,
+     "pct": 0.2,
+     "quotes": []
+    },
+    {
+     "name": "Resentment",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Bitterness",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Irritation",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Irritation/frustration, because I work retail."
+     ]
+    }
+   ],
+   "quotes": [
+    "Anger. I just think it's unprofessional to bring anger or negativity to work.",
+    "Anger because it has a negative effect on those around you",
+    "Anger, because it’s a public space."
+   ]
+  },
+  {
+   "name": "Afraid",
+   "n": 156,
+   "pct": 15.6,
+   "pct_all": 13.131,
+   "split": {
+    "Leaders": 20.041,
+    "Non-leaders": 11.35,
+    "Women": 12.343,
+    "Men": 18.217,
+    "p_role": 0.00021659027895409437,
+    "p_gender": 0.013284491732833147
+   },
+   "intensity": {
+    "High": 1.0,
+    "Medium": 13.1,
+    "Low": 1.8
+   },
+   "words": [
+    {
+     "name": "Apprehension",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Fear",
+     "intensity": "High",
+     "n": 10,
+     "pct": 1.0,
+     "quotes": [
+      "Fear. Because when something needs done even if I'm afraid to do it I have to do it because it's a job and I need to get it done",
+      "Fear\nas a leader myself, i ought not  to show fear in certain difficult situations in order not to discourage or demotivate my subordinates",
+      "Anitety afraid I'll make a mistake."
+     ]
+    },
+    {
+     "name": "Anxiety",
+     "intensity": "Low",
+     "n": 12,
+     "pct": 1.2,
+     "quotes": [
+      "Some anxiety because produce more uncertainty life and doubt",
+      "Anxiety because it can interfere with your ability to do your job.",
+      "Sadness anger tiredness anxiety"
+     ]
+    },
+    {
+     "name": "Vulnerability",
+     "intensity": "Medium",
+     "n": 123,
+     "pct": 12.3,
+     "quotes": [
+      "We are not supported At All by leadership. Therefore, anything that makes us vulnerable or question them is off the table such as anger or sadness.",
+      "Vulnerability — seen as weakness at work.",
+      "The big one would be vulnerability. Nobody wants to be seen as vulnerable"
+     ]
+    },
+    {
+     "name": "Weakness",
+     "intensity": "Medium",
+     "n": 7,
+     "pct": 0.7,
+     "quotes": [
+      "It s seen as unprofessional showwing it might be considered weak",
+      "Weakness and anger because they lead to negative work results.",
+      "Its often as asing of weakness or lack of resilience , unlike anger or vulnerability ."
+     ]
+    },
+    {
+     "name": "Helplessness",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Helpless. it is considered weak"
+     ]
+    },
+    {
+     "name": "Nervousness",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Stress",
+     "intensity": "Low",
+     "n": 4,
+     "pct": 0.4,
+     "quotes": [
+      "Stress the emotion at work because i have to finish cleaning rooms on time"
+     ]
+    },
+    {
+     "name": "Uncertainty",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Professionalism is equated with emotional control: Admitting uncertainty, fear, or personal struggle can be seen as a weakness or lack of competence."
+     ]
+    }
+   ],
+   "quotes": [
+    "We are not supported At All by leadership. Therefore, anything that makes us vulnerable or question them is off the table such as anger or sadness.",
+    "Vulnerability — seen as weakness at work.",
+    "The big one would be vulnerability. Nobody wants to be seen as vulnerable"
+   ]
+  },
+  {
+   "name": "Sad",
+   "n": 143,
+   "pct": 14.3,
+   "pct_all": 12.037,
+   "split": {
+    "Leaders": 13.906,
+    "Non-leaders": 14.677,
+    "Women": 16.946,
+    "Men": 11.822,
+    "p_role": 0.7965073102443118,
+    "p_gender": 0.026700195242095253
+   },
+   "intensity": {
+    "High": 1.2,
+    "Medium": 13.4,
+    "Low": 0.3
+   },
+   "words": [
+    {
+     "name": "Depression",
+     "intensity": "High",
+     "n": 3,
+     "pct": 0.3,
+     "quotes": [
+      "Depression because it could be from personal issues",
+      "Sadness, depression, vulnerability. No one really wants to hear how you actually feel, they just want to move on"
+     ]
+    },
+    {
+     "name": "Grief",
+     "intensity": "High",
+     "n": 5,
+     "pct": 0.5,
+     "quotes": [
+      "Sadness, like crying or grieving, because it makes others uncomfortable, and causes distraction.",
+      "Grief, anger, rage - not work appropriate"
+     ]
+    },
+    {
+     "name": "Hopelessness",
+     "intensity": "High",
+     "n": 4,
+     "pct": 0.4,
+     "quotes": [
+      "I don’t work but when I did it was hopeless",
+      "Vulnerability and anger and sadness and hopelessness"
+     ]
+    },
+    {
+     "name": "Sadness",
+     "intensity": "Medium",
+     "n": 134,
+     "pct": 13.4,
+     "quotes": [
+      "Anger and sadness because it affects the customers experience.",
+      "Sadness. It's difficult to express it in a work setting",
+      "Sadness because work requires alertness with no distractions."
+     ]
+    },
+    {
+     "name": "Unhappiness",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Unhappy because of the stress and employees"
+     ]
+    },
+    {
+     "name": "Disappointment",
+     "intensity": "Low",
+     "n": 2,
+     "pct": 0.2,
+     "quotes": [
+      "Anger or disappointment, because our parent company doesn't like critical feedback.",
+      "Feeling disappointed or indifferent"
+     ]
+    }
+   ],
+   "quotes": [
+    "Anger and sadness because it affects the customers experience.",
+    "Sadness. It's difficult to express it in a work setting",
+    "Sadness because work requires alertness with no distractions."
+   ]
+  },
+  {
+   "name": "Ashamed",
+   "n": 1,
+   "pct": 0.1,
+   "pct_all": 0.084,
+   "split": {
+    "Leaders": 0.204,
+    "Non-leaders": 0.0,
+    "Women": 0.0,
+    "Men": 0.194,
+    "p_role": 0.9824349237705224,
+    "p_gender": 1.0
+   },
+   "intensity": {
+    "High": 0.0,
+    "Medium": 0.0,
+    "Low": 0.1
+   },
+   "words": [
+    {
+     "name": "Shyness",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    }
+   ],
+   "quotes": []
+  },
+  {
+   "name": "Happy",
+   "n": 85,
+   "pct": 8.5,
+   "pct_all": 7.155,
+   "split": {
+    "Leaders": 11.656,
+    "Non-leaders": 5.479,
+    "Women": 6.067,
+    "Men": 10.853,
+    "p_role": 0.0007045046251475442,
+    "p_gender": 0.009813799684510896
+   },
+   "intensity": {
+    "High": 0.3,
+    "Medium": 8.2,
+    "Low": 0.0
+   },
+   "words": [
+    {
+     "name": "Excitement",
+     "intensity": "High",
+     "n": 3,
+     "pct": 0.3,
+     "quotes": []
+    },
+    {
+     "name": "Joy",
+     "intensity": "Medium",
+     "n": 52,
+     "pct": 5.2,
+     "quotes": []
+    },
+    {
+     "name": "Happiness",
+     "intensity": "Medium",
+     "n": 15,
+     "pct": 1.5,
+     "quotes": [
+      "Happiness. The people around me hate to see me smiling or expressing any kind of joy or love for myself."
+     ]
+    },
+    {
+     "name": "Gratitude",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Hope",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Hope. Having expectations based on optimism is not productive."
+     ]
+    },
+    {
+     "name": "Love",
+     "intensity": "Medium",
+     "n": 11,
+     "pct": 1.1,
+     "quotes": [
+      "Love because you usually dont need to show that emotion when working.",
+      "Attraction, flirting. There are state laws which govern interactions at work. Outside of work is different."
+     ]
+    },
+    {
+     "name": "Pride",
+     "intensity": "Medium",
+     "n": 2,
+     "pct": 0.2,
+     "quotes": [
+      "Pride because it is seen a ego"
+     ]
+    }
+   ],
+   "quotes": [
+    "Happiness. The people around me hate to see me smiling or expressing any kind of joy or love for myself.",
+    "Joy. Because there is not much place to be happy about so you can’t really be smiling a lot."
+   ]
+  }
+ ],
+ "n_says_none": 48,
+ "n_outside": 11,
+ "outside": [
+  [
+   "lust",
+   4
+  ],
+  [
+   "sarcasm",
+   2
+  ],
+  [
+   "curiosity",
+   1
+  ],
+  [
+   "wonder",
+   1
+  ],
+  [
+   "zest",
+   1
+  ],
+  [
+   "indecisiveness",
+   1
+  ],
+  [
+   "feeling unappreciated",
+   1
+  ]
+ ],
+ "n_multi": 50
+};
+(function () {
+  var COLORS = { Angry: '#FFA53B', Afraid: '#22ACC7', Sad: '#7FA7E8', Ashamed: '#B7A6E8', Happy: '#0ACC8B' };
+  var LEVEL = { High: 1, Medium: .55, Low: 0 };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fmt = function (v) { return (Math.round(v * 10) / 10).toString().replace(/\.0$/, '') + '%'; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var angry = DATA.cores.filter(function (c) { return c.name === 'Angry'; })[0];
+
+  document.getElementById('nNamed').textContent = DATA.n_named.toLocaleString();
+  document.getElementById('angryPct').textContent = Math.round(angry.pct) + '%';
+  var core = function (name) { return DATA.cores.filter(function (c) { return c.name === name; })[0]; };
+  var r0 = function (v) { return Math.round(v) + '%'; };
+  var set = function (cls, v) { document.querySelectorAll('.' + cls).forEach(function (el) { el.textContent = v; }); };
+  set('v-named', DATA.n_named.toLocaleString()); set('v-angry', r0(angry.pct));
+  set('v-non', r0(angry.split['Non-leaders'])); set('v-lead', r0(angry.split.Leaders));
+  set('v-women', r0(angry.split.Women)); set('v-men', r0(angry.split.Men));
+  var rest = DATA.n_all - DATA.n_named, ex = DATA.outside.filter(function (o) { return o[0] !== 'sarcasm'; }).slice(0, 4).map(function (o) { return o[0]; });
+  var exList = ex.slice(0, -1).join(', ') + ' and ' + ex[ex.length - 1];
+  document.getElementById('gnote').textContent = 'Not everyone named one: ' + DATA.n_says_none + ' people said no emotion feels off-limits at their work.';
+  document.getElementById('groupnote').textContent = 'Percentages are of the ' + DATA.n_named.toLocaleString() + ' people who named one of the five core emotions. ' +
+    DATA.n_multi + ' named more than one (for example, \u201canger and sadness\u201d) and count under each, so the five groups add to more than 100%. ' +
+    'Crying was counted as sadness. Of the other ' + rest + ' people, ' + DATA.n_says_none + ' said no emotion feels off-limits at their work, ' +
+    DATA.n_outside + ' named an emotion outside the five (most often ' + DATA.outside[0][0] + ', also ' + ex.slice(1).join(', ') +
+    '), and the rest left it blank, weren\u2019t sure, or gave an answer that wasn\u2019t an emotion.';
+
+  // essay chart: anger by role and gender, bars grow when scrolled into view
+  var s0 = angry.split, rows = [['By leadership role', [['Non-leaders', s0['Non-leaders'], 0], ['Leaders', s0.Leaders, 1]]],
+                                ['By gender', [['Women', s0.Women, 0], ['Men', s0.Men, 1]]]];
+  var ch = document.getElementById('angerChart');
+  ch.innerHTML = rows.map(function (g) {
+    return '<div class="cgrp">' + g[0] + '</div>' + g[1].map(function (r) {
+      return '<div class="crow"><span>' + r[0] + '</span><span class="t"><span class="f' + (r[2] ? ' lo' : '') + '" data-w="' + r[1] + '"></span></span><span class="v">' + Math.round(r[1]) + '%</span></div>';
+    }).join('');
+  }).join('');
+  function grow() { ch.querySelectorAll('.f').forEach(function (f) { f.style.width = f.dataset.w + '%'; }); }
+  if (reduce || !('IntersectionObserver' in window)) grow();
+  else new IntersectionObserver(function (es, ob) { if (es[0].isIntersecting) { grow(); ob.disconnect(); } }, { threshold: .4 }).observe(ch);
+
+  // reference table: the specific emotions named, by core emotion and intensity
+  document.getElementById('reftbl').innerHTML = DATA.cores.map(function (c) {
+    var by = function (lvl) { return c.words.filter(function (w) { return w.intensity === lvl; }).map(function (w) { return esc(w.name); }).join(', ') || '&ndash;'; };
+    return '<tr><td><span class="dot" style="background:' + COLORS[c.name] + '"></span><b>' + c.name + '</b></td><td>' + by('High') + '</td><td>' + by('Medium') + '</td><td>' + by('Low') + '</td></tr>';
+  }).join('');
+
+  // legend + table
+  var lg = DATA.cores.map(function (c) { return '<span><i style="background:' + COLORS[c.name] + '"></i>' + c.name + '</span>'; }).join('') +
+    '<span class="lvl h"><i></i>High intensity</span><span class="lvl m"><i></i>Medium</span><span class="lvl"><i></i>Low</span>';
+  document.getElementById('legend').innerHTML = lg;
+  document.getElementById('tbl').innerHTML = DATA.cores.map(function (c) {
+    var s = c.split;
+    return '<tr><td><span class="dot" style="background:' + COLORS[c.name] + '"></span>' + c.name + '</td><td class="n"><b>' + fmt(c.pct) + '</b></td><td class="n">' +
+      fmt(s['Non-leaders']) + '</td><td class="n">' + fmt(s.Leaders) + '</td><td class="n">' + fmt(s.Women) + '</td><td class="n">' + fmt(s.Men) + '</td></tr>';
+  }).join('');
+
+  // ---- graph data ----
+  var nodes = [{ id: 'root', type: 'root', label: 'Off-limits at work' }], links = [];
+  DATA.cores.forEach(function (c) {
+    nodes.push({ id: c.name, type: 'core', core: c.name, d: c });
+    links.push({ source: 'root', target: c.name, hub: true, w: c.pct });
+    c.words.forEach(function (w) {
+      var id = c.name + ':' + w.name;
+      nodes.push({ id: id, type: 'word', core: c.name, d: w });
+      links.push({ source: c.name, target: id, w: w.pct });
+    });
+  });
+  var rCore = d3.scaleSqrt().domain([0, 70]).range([16, 70]);
+  var rWord = d3.scaleSqrt().domain([0, 630]).range([6, 26]);
+  nodes.forEach(function (n) { n.r = n.type === 'root' ? 34 : n.type === 'core' ? rCore(n.d.pct) : rWord(n.d.n); });
+
+  var svg = d3.select('#g'), W = 800, H = 560;
+  svg.attr('viewBox', [0, 0, W, H]);
+  var defs = svg.append('defs');
+  var glow = defs.append('filter').attr('id', 'glow').attr('x', '-50%').attr('y', '-50%').attr('width', '200%').attr('height', '200%');
+  glow.append('feGaussianBlur').attr('stdDeviation', 6).attr('result', 'b');
+  var mg = glow.append('feMerge'); mg.append('feMergeNode').attr('in', 'b'); mg.append('feMergeNode').attr('in', 'SourceGraphic');
+
+  var world = svg.append('g');
+  var linkSel = world.append('g').selectAll('line').data(links).join('line')
+    .attr('class', function (l) { return 'link' + (l.hub ? ' hub' : ''); })
+    .attr('stroke-width', function (l) { return l.hub ? 1.5 + l.w / 9 : 1.2; });
+  var pulseLayer = world.append('g');
+  var nodeSel = world.append('g').selectAll('g').data(nodes).join('g').attr('class', 'node')
+    .attr('tabindex', 0).attr('role', 'button')
+    .attr('aria-label', function (n) { return n.type === 'root' ? 'Overview' : n.type === 'core' ? n.core + ', ' + fmt(n.d.pct) : n.d.name + ', ' + n.d.intensity + ' intensity ' + n.core; });
+
+  nodeSel.each(function (n) {
+    var g = d3.select(this), col = n.type === 'root' ? '#FFFFFF' : COLORS[n.core];
+    if (n.type !== 'word') g.append('circle').attr('class', 'halo').attr('r', n.r * 1.45).attr('fill', col);
+    if (n.type === 'root') {
+      g.append('circle').attr('r', n.r).attr('fill', '#04152B').attr('stroke', '#fff').attr('stroke-width', 2.5);
+      g.append('text').attr('class', 'lbl').attr('text-anchor', 'middle').attr('dy', '-.2em').attr('font-size', 11).text('Off-limits');
+      g.append('text').attr('class', 'lbl').attr('text-anchor', 'middle').attr('dy', '1em').attr('font-size', 11).text('at work');
+    } else if (n.type === 'core') {
+      g.append('circle').attr('r', n.r).attr('fill', col).attr('filter', 'url(#glow)');
+      g.append('text').attr('class', 'lbl').attr('text-anchor', 'middle').attr('dy', n.r > 30 ? '-.25em' : '.35em')
+        .attr('font-size', n.r > 30 ? 17 : 11).attr('fill', '#04152B').style('fill', '#04152B').text(n.core);
+      if (n.r > 30) g.append('text').attr('class', 'pc').attr('text-anchor', 'middle').attr('dy', '1.05em').attr('font-size', 22).style('fill', '#04152B').text(fmt(n.d.pct));
+      else g.append('text').attr('class', 'pc').attr('text-anchor', 'middle').attr('dy', n.r + 14).attr('font-size', 11).text(fmt(n.d.pct));
+    } else {
+      var lvl = LEVEL[n.d.intensity];
+      g.append('circle').attr('r', n.r).attr('fill', col).attr('fill-opacity', lvl === 0 ? 0 : lvl)
+        .attr('stroke', col).attr('stroke-width', lvl === 0 ? 2.5 : 1.5);
+      g.append('text').attr('class', 'lbl').attr('text-anchor', 'middle').attr('dy', n.r + 13).attr('font-size', 10.5).style('fill', '#D7E5F3').text(n.d.name);
+    }
+  });
+
+  var sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(function (n) { return n.id; })
+      .distance(function (l) { return l.hub ? 120 + l.target.r : 34 + l.target.r + l.source.r; }).strength(.7))
+    .force('charge', d3.forceManyBody().strength(function (n) { return n.type === 'word' ? -140 : -650; }))
+    .force('collide', d3.forceCollide().radius(function (n) { return n.type === 'word' ? Math.max(n.r + 10, n.d.name.length * 3.1) : n.r + 14; }))
+    .force('x', d3.forceX(W / 2).strength(function (n) { return n.type === 'word' ? .02 : .04; }))
+    .force('y', d3.forceY(H / 2).strength(function (n) { return n.type === 'word' ? .03 : .06; }))
+    .force('ring', d3.forceRadial(function (n) { return n.type === 'core' ? 150 + n.r * .9 : 0; }, W / 2, H / 2).strength(function (n) { return n.type === 'core' ? .6 : 0; }));
+  // seed the five core emotions evenly around the center so small ones aren't crowded out
+  nodes.filter(function (n) { return n.type === 'core'; }).forEach(function (n, i, arr) {
+    var a = -Math.PI / 2 + i * 2 * Math.PI / arr.length; n.x = W / 2 + Math.cos(a) * 200; n.y = H / 2 + Math.sin(a) * 180;
+  });
+  nodes[0].fx = W / 2; nodes[0].fy = H / 2;
+
+  function clamp(n) { n.x = Math.max(n.r + 4, Math.min(W - n.r - 4, n.x)); n.y = Math.max(n.r + 4, Math.min(H - n.r - 22, n.y)); }
+  sim.on('tick', function () {
+    nodes.forEach(clamp);
+    linkSel.attr('x1', function (l) { return l.source.x; }).attr('y1', function (l) { return l.source.y; })
+      .attr('x2', function (l) { return l.target.x; }).attr('y2', function (l) { return l.target.y; });
+    nodeSel.attr('transform', function (n) { return 'translate(' + n.x + ',' + n.y + ')'; });
+  });
+  if (!reduce) sim.alphaTarget(.012);  // keeps the network gently breathing
+
+  nodeSel.call(d3.drag()
+    .on('start', function (e, n) { if (!e.active) sim.alphaTarget(.2).restart(); n.fx = n.x; n.fy = n.y; })
+    .on('drag', function (e, n) { n.fx = e.x; n.fy = e.y; })
+    .on('end', function (e, n) { if (!e.active) sim.alphaTarget(reduce ? 0 : .012); if (n.type !== 'root') { n.fx = null; n.fy = null; } }));
+
+  // signals travelling from the center out along each link, weighted toward the big branches
+  var pulses = [];
+  if (!reduce) {
+    links.forEach(function (l) {
+      var count = l.hub ? Math.max(1, Math.round(l.w / 12)) : (l.w > 20 ? 2 : 1);
+      for (var i = 0; i < count; i++) pulses.push({ l: l, off: Math.random(), speed: l.hub ? 2600 : 1900 });
+    });
+    var dots = pulseLayer.selectAll('circle').data(pulses).join('circle').attr('class', 'pulse')
+      .attr('r', function (p) { return p.l.hub ? 2.6 : 1.8; });
+    d3.timer(function (t) {
+      dots.each(function (p) {
+        var k = ((t / p.speed) + p.off) % 1, s = p.l.source, g = p.l.target;
+        this.setAttribute('cx', s.x + (g.x - s.x) * k); this.setAttribute('cy', s.y + (g.y - s.y) * k);
+        this.setAttribute('opacity', Math.sin(k * Math.PI) * .9);
+      });
+    });
+  }
+
+  // ---- interaction ----
+  var panel = document.getElementById('panel');
+  function bar(label, v, col) { return '<div class="bar"><span>' + label + '</span><span class="t"><span class="f" style="width:' + Math.min(v, 100) + '%;background:' + col + '"></span></span><span class="v">' + fmt(v) + '</span></div>'; }
+  function sig(p) { return p < .05 ? '<span class="sig">Significant</span>' : '<span class="ns">Not significant</span>'; }
+  function quotes(list, col) { return (list || []).map(function (q) { return '<p class="q" style="--qc:' + col + '">&ldquo;' + esc(q) + '&rdquo;</p>'; }).join(''); }
+
+  function show(n) {
+    var html;
+    if (n.type === 'root') {
+      html = '<p class="k">Overview</p><h2>Which emotion feels most off-limits at work?</h2>' +
+        '<p class="sub">' + DATA.n_named.toLocaleString() + ' of ' + DATA.n_all.toLocaleString() + ' respondents named an emotion.</p>' +
+        DATA.cores.map(function (c) { return bar(c.name, c.pct, COLORS[c.name]); }).join('') +
+        '<p>Each circle is an emotion people named, sorted into five core emotions. Bigger circles were named more often. Filled circles are higher intensity.</p>';
+    } else if (n.type === 'core') {
+      var c = n.d, s = c.split, col = COLORS[c.name];
+      html = '<p class="k">Core emotion</p><h2 style="color:' + col + '">' + c.name + '</h2>' +
+        '<p class="big">' + fmt(c.pct) + '</p><p class="sub">of people who named an emotion (' + c.n.toLocaleString() + ' people)</p>' +
+        '<h3>By role ' + sig(s.p_role) + '</h3>' + bar('Non-leaders', s['Non-leaders'], col) + bar('Leaders', s.Leaders, col) +
+        '<h3>By gender ' + sig(s.p_gender) + '</h3>' + bar('Women', s.Women, col) + bar('Men', s.Men, col) +
+        '<h3>By intensity</h3>' + bar('High', c.intensity.High, col) + bar('Medium', c.intensity.Medium, col) + bar('Low', c.intensity.Low, col) +
+        (c.quotes.length ? '<h3>In their words</h3>' + quotes(c.quotes.slice(0, 2), col) : '');
+    } else {
+      var w = n.d, col2 = COLORS[n.core];
+      html = '<p class="k">' + n.core + ' &middot; ' + w.intensity + ' intensity</p><h2 style="color:' + col2 + '">' + esc(w.name) + '</h2>' +
+        '<p class="big">' + w.n.toLocaleString() + '</p><p class="sub">people named it (' + fmt(w.pct) + ' of those who named an emotion)</p>' +
+        (w.quotes.length ? '<h3>In their words</h3>' + quotes(w.quotes, col2) : '');
+    }
+    panel.innerHTML = html;
+    var keep = new Set([n.id]);
+    links.forEach(function (l) { if (l.source.id === n.id) keep.add(l.target.id); if (l.target.id === n.id) keep.add(l.source.id); });
+    svg.classed('dim', n.type !== 'root');
+    nodeSel.classed('on', function (m) { return keep.has(m.id); });
+    linkSel.classed('on', function (l) { return keep.has(l.source.id) && keep.has(l.target.id); });
+  }
+  nodeSel.on('click', function (e, n) { show(n); })
+    .on('keydown', function (e, n) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(n); } });
+  svg.on('click', function (e) { if (e.target === this) show(nodes[0]); });
+  show(nodes.filter(function (n) { return n.id === 'Angry'; })[0]);
+  svg.classed('dim', false);  // open on Angry's details without fading the rest of the network
+})();
+</script>
+</body>
+</html>
