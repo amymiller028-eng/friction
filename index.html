@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The American Emotions Survey | TalentSmartEQ</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700;900&display=swap">
 <style>
 :root{
   --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
@@ -255,6 +255,77 @@ a.card{text-decoration:none}
 .breathe{transform-origin:82px 80px;transform-box:view-box;animation:breathe 3.2s ease-in-out infinite}
 @keyframes breathe{50%{transform:scale(1.18);opacity:.08}}
 @media (prefers-reduced-motion:reduce){.breathe{animation:none}.featured .pulses{display:none}}
+
+/* chapter 4 accordion, like the live page */
+.ch4d{gap:.9rem}
+.ins.acc{border:1px solid var(--hair);border-radius:10px;padding:0;background:var(--surface);overflow:hidden}
+.ins.acc summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) 28px;gap:.35rem 1rem;padding:1.15rem 1.3rem;transition:background .15s}
+.ins.acc summary::-webkit-details-marker{display:none}
+.ins.acc summary:hover{background:var(--aside)}
+.acc-t{grid-column:1;font-family:var(--font-display);font-weight:700;font-size:clamp(1.05rem,2.3vw,1.25rem);line-height:1.25;color:var(--ink)}
+.acc-b{grid-column:1;font-size:.93rem;color:var(--ink-2);line-height:1.55}
+.acc-b b{color:var(--ink)}
+.chev{grid-column:2;grid-row:1/span 2;align-self:center;width:28px;height:28px;border-radius:50%;background:var(--aside);position:relative;transition:transform .25s}
+.chev::before{content:"";position:absolute;left:50%;top:45%;width:8px;height:8px;border-right:2px solid var(--navy);border-bottom:2px solid var(--navy);transform:translate(-50%,-50%) rotate(45deg)}
+.ins.acc[open] .chev{transform:rotate(180deg)}
+.ins.acc[open] summary{border-bottom:1px solid var(--hair)}
+.acc-body{padding:1rem 1.3rem .4rem}
+@media (prefers-reduced-motion:reduce){.chev{transition:none}}
+
+/* chapter 4: matches talentsmarteq.com/national-emotions-study */
+.ch4x{font-family:Montserrat,sans-serif;color:#1A1A2E;margin:3.5rem calc(50% - 50vw) 0;background:#fff;padding:0 16px 3rem}
+.ch4x-intro{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:300px minmax(0,1fr);gap:68px;align-items:start;padding:24px 0 48px}
+.ch4x-book{width:100%;height:auto;display:block}
+.ch4x-eyebrow{margin:24px 0 8px;color:#22ACC7;font-size:18px;font-weight:700;text-transform:uppercase;line-height:1.3}
+.ch4x h2{margin:0 0 24px;color:#22ACC7;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(44px,6.4vw,82px);line-height:.92;letter-spacing:0}
+.ch4x-meta{margin:0 0 40px;font-size:15px;line-height:30px;color:#1A1A2E}
+.ch4x-about{margin:0;font-size:20px;line-height:37px;color:#1A1A2E}
+.ch4x-list{max-width:800px;margin:0 auto;padding-top:96px;position:relative;display:flex;flex-direction:column;gap:24px}
+.ch4x-list::before{content:"";position:absolute;top:0;left:calc(400px - 50vw);width:100vw;border-top:1px solid #A9BACB}
+.ch4x-h{margin:0 0 16px 28px;color:#22ACC7;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.2}
+.ch4x .acc{background-repeat:no-repeat;background-position:20px 24px;border-radius:12px}
+.ch4x #finding-1{background-image:url(images/chapter4/circle-1.svg)}
+.ch4x #finding-2{background-image:url(images/chapter4/circle-2.svg)}
+.ch4x #finding-3{background-image:url(images/chapter4/circle-3.svg)}
+.ch4x #finding-4{background-image:url(images/chapter4/circle-4.svg)}
+.ch4x #finding-5{background-image:url(images/chapter4/circle-5.svg)}
+.ch4x #finding-6{background-image:url(images/chapter4/circle-6.svg)}
+.ch4x #finding-7{background-image:url(images/chapter4/circle-7.svg)}
+.ch4x #finding-8{background-image:url(images/chapter4/circle-8.svg)}
+.ch4x summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;border:1px solid #DCE3ED;border-radius:12px}
+.ch4x summary::-webkit-details-marker{display:none}
+.ch4x .acc[open]>summary{border-bottom:0;border-radius:10px 10px 0 0}
+.ch4x summary:focus-visible{outline:2px solid #22ACC7;outline-offset:2px}
+.ch4x .t{padding-left:48px;flex:1}
+.ch4x .tt{display:block;font-weight:700;font-size:18px;line-height:24px;color:#1A1A2E}
+.ch4x .desc{display:block;margin-top:4px;color:#5A6479;font-size:13px;font-weight:400;line-height:21.125px}
+.ch4x .desc b{color:#00437A}
+.ch4x .ic{flex:0 0 15px;width:15px;height:15px;position:relative}
+.ch4x .ic::before,.ch4x .ic::after{content:"";position:absolute;left:0;top:6px;width:15px;height:3px;border-radius:1px;background:#003057}
+.ch4x .ic::after{transform:rotate(90deg)}
+.ch4x .acc[open] .ic::after{display:none}
+.ch4x .body{display:flex;flex-direction:column;gap:20px;padding:20px 24px;border:1px solid #DCE3ED;border-radius:0 0 12px 12px}
+.ch4x .body img{width:100%;height:auto;display:block}
+.ch4x .q{border-radius:8px;padding:12px 16px;font-size:12px;line-height:20px}
+.ch4x .q p{margin:0}
+.ch4x .q.navy{background:#002D61;color:#fff}
+.ch4x .q.light{background:#E8F0F7;color:#5A6479}
+.ch4x .q.light strong{color:#003057}
+.ch4x .friction-blue{color:#22ACC7}
+.ch4x .txt{font-size:14px;line-height:27px;color:#1A1A2E}
+.ch4x .txt p{margin:0 0 20px}
+.ch4x .txt p:last-child{margin-bottom:0}
+.ch4x .lbl{margin:4px 0 0;font-size:11px;font-weight:600;text-transform:uppercase;color:#5A6479;line-height:1.5}
+@media (max-width:767px){
+  .ch4x-intro{grid-template-columns:1fr;gap:24px}
+  .ch4x-book{max-width:220px}
+  .ch4x-about{font-size:17px;line-height:30px}
+  .ch4x-h{margin-left:0}
+  .ch4x summary{padding:16px}
+  .ch4x .acc{background-position:12px 18px}
+  .ch4x .t{padding-left:36px}
+  .ch4x .body{padding:16px}
+}
 </style>
 </head>
 <body>
@@ -487,89 +558,92 @@ a.card{text-decoration:none}
     </div>
   </section>
 
-  <section class="section" aria-labelledby="ch4-h">
-    <div class="ch4intro">
-      <h2 id="ch4-h">The Data Behind Chapter 4:<br>Leading Through Friction</h2>
-      <p><b>Source:</b> The American (National) Emotions Survey &mdash; Friction, Blankenship &amp; Sass</p>
-      <p><b>Sample:</b> 1,188 working U.S. adults, fielded October 2025&ndash;January 2026 via a representative panel</p>
-      <p><b>About this page:</b> Chapter 4 of the book distills these findings into nine core insights for a general reader. This page reproduces the full underlying data including exact percentages, generational breakdowns, sample sizes, and regression detail, for readers who want to go deeper. All figures below reflect the analytic dataset (N = 1,188) used in the published chapter.</p>
-      <h3 class="ch4h">Chapter 4 Findings, In Detail</h3>
+  <section class="ch4x" aria-labelledby="ch4-h">
+    <div class="ch4x-intro">
+      <img class="ch4x-book" src="images/chapter4/friction-book-alone.png" alt="Friction: How Tension, Emotion, and Change Reveal Better Leaders, by Ross Blankenship, PhD and Maggie Sass, PhD" width="300" height="512">
+      <div>
+        <p class="ch4x-eyebrow">The Data Behind Chapter 4:</p>
+        <h2 id="ch4-h">Leading Through Friction</h2>
+        <p class="ch4x-meta">Source: The American (National) Emotions Survey &mdash; Friction, Blankenship &amp; Sass<br>Sample: 1,188 working U.S. adults, fielded October 2025&ndash;January 2026 via a representative panel</p>
+        <p class="ch4x-about">About this page: Chapter 4 of the book distills these findings into nine core insights for a general reader. This page reproduces the full underlying data including exact percentages, generational breakdowns, sample sizes, and regression detail, for readers who want to go deeper. All figures below reflect the analytic dataset (N = 1,188) used in the published chapter.</p>
+      </div>
     </div>
-    <div class="ch4d">
-      <article class="ins">
-        <h3>We already know where we&rsquo;re going.</h3>
-        <p class="inbook"><b>In the book:</b> Roughly 60% of respondents said emotional intelligence will matter even more in the future of work.</p>
-        <p class="sq"><b>Survey question:</b> &ldquo;How important will emotional intelligence (EQ) be for human success at work as AI takes on more tasks?&rdquo; (Top-2 = Very + Extremely important)</p>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/1-table-eq-future.svg" alt="Table: how important EQ will be as AI takes on more tasks" loading="lazy"></figure>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/eq-future.svg" alt="Chart: importance of EQ as AI takes on more tasks, by generation" loading="lazy"></figure>
-        <p><b>Response breakdown:</b> 26.3% of respondents (313 people) said EQ will be Extremely important, and 33.1% said Important, an additional 23.8% said Moderately important. Millennials and Gen Z lead the way at 62&ndash;63%; Boomers and the Silent Generation are lowest, but still roughly half.</p>
-      </article>
-
-      <article class="ins">
-        <h3>The &ldquo;Emotion Is Weakness&rdquo; Myth Is Officially Dying</h3>
-        <p class="inbook"><b>In the book:</b> 35% of working adults still agree that emotions are a weakness at work, and counterintuitively, Millennials hold that belief most strongly, not older generations.</p>
-        <p class="sq"><b>Survey question:</b> &ldquo;To what extent do you agree &mdash; Showing emotions at work is seen as a sign of weakness&rdquo; (Top-2 = Somewhat + Strongly agree)</p>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/2-table-emotions-weakness.svg" alt="Table: agreement that showing emotions at work is seen as weakness" loading="lazy"></figure>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/2-chart-emotions-weakness.svg" alt="Chart: agreement that showing emotions at work is seen as weakness, by generation" loading="lazy"></figure>
-        <p>Millennials, the generation most associated with popularizing emotional-intelligence language and &ldquo;bringing your whole self to work&rdquo;, endorse the emotions-as-weakness view at a higher rate than any other cohort, including Gen X and the Boomers who are often assumed to be the norm&rsquo;s originators.</p>
-      </article>
-
-      <article class="ins">
-        <h3>Leaders Write the Emotional Rule Book</h3>
-        <p class="inbook"><b>In the book:</b> More than half of respondents (53.6%) agree that when leaders hide their emotions, it creates more problems than it solves. Leaders themselves feel the most pressure to suppress: 66% of leaders vs 47% of non-leaders agree leaders feel more pressure to hide emotions than other employees.</p>
-        <p class="sq"><b>Survey question:</b> &ldquo;To what extent do you agree &mdash; When leaders hide their emotions, it creates more problems than it solves&rdquo; (Top-2 = Somewhat + Strongly agree)</p>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/3-table-leaders-hiding.svg" alt="Table: agreement that leaders hiding emotions creates more problems than it solves" loading="lazy"></figure>
-        <p>In regression models controlling for age, gender, leader role and level, industry, and other emotional norms (see Model 1A, Appendix), agreement with this item is a moderate, statistically significant predictor of both emotional drain (standardized &beta; = .135, p &lt; .001) and inauthenticity (&beta; = .186, p &lt; .001).</p>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/3-DataTable_margin.svg" alt="Regression table: leaders hiding emotions as a predictor of drain and inauthenticity" loading="lazy"></figure>
-        <h4>Leaders vs. Non-Leaders: Emotional Drain</h4>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/leaders-vs-nonleaders.svg" alt="Chart: emotional drain, leaders vs. non-leaders" loading="lazy"></figure>
-        <p>Leaders report meaningfully more emotional drain than the people they lead, not less. This is consistent with the chapter&rsquo;s &ldquo;leader-as-thermostat&rdquo; idea: Leaders don&rsquo;t just feel pressure to hide emotion, they also personally absorb more of the organization&rsquo;s emotional weight.</p>
-      </article>
-
-      <article class="ins">
-        <h3>Enlightened but Exhausted: The Cost of Progress</h3>
-        <p class="inbook"><b>In the book:</b> Emotional drain rises steadily by generation, and younger workers hold the most emotionally open values while paying the highest emotional cost for the gap between those values and the workplaces they&rsquo;ve inherited.</p>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/4-table-emotional-drain-mean.svg" alt="Table: average emotional drain by generation" loading="lazy"></figure>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/4-chart-emotional-drain-mean.svg" alt="Chart: average emotional drain by generation" loading="lazy"></figure>
-        <p>The generational gap is nearly a full point (1.29) between the oldest and youngest cohorts, though the gap between Millennials and Gen Z specifically is small (0.12).</p>
-        <h4>Supporting comparison &mdash; emotional-openness measures where younger cohorts diverge from older ones</h4>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/4-DataTable_margin.svg" alt="Table: emotional-openness measures by generation" loading="lazy"></figure>
-        <p class="ext"><b>External context (not from this survey):</b> A 2024 UKG survey found 83% of Gen Z frontline workers report feeling burned out (higher than any other working group). Eagle Hill Consulting found 66% of Gen Z workers report burnout, vs. 37% of Boomers, and that Gen Z and Millennial workers reach peak burnout around age 25 &mdash; roughly 17 years earlier than the survey&rsquo;s national average of 42.</p>
-      </article>
-
-      <article class="ins">
-        <h3>Younger Workers Are the Most Emotionally Open</h3>
-        <p class="inbook"><b>In the book:</b> Younger cohorts are more likely to see their workplace as accepting of emotional expression, more likely to say leaders hiding emotions creates problems, and more likely to feel comfortable when colleagues express emotion, with Millennials and Gen Z together leading a cultural shift..</p>
-        <h4>Top-2 Box across three emotional-openness measures, by generation</h4>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/5-DataTable_margin.svg" alt="Table: top-2 box on three emotional-openness measures, by generation" loading="lazy"></figure>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/5-chart.svg" alt="Chart: three emotional-openness measures, by generation" loading="lazy"></figure>
-        <p>Millennials and Gen Z are essentially tied for the lead across all three measures. Millennials edge out Gen Z on two of the three, and the two cohorts trade the top spot on the third by about a point. Both groups run well ahead of Gen X and the Boomers.</p>
-        <p>Across three systemic-norm indicators combined into a single index, the average American workplace scores 3.04 out of 5 &mdash; squarely in the middle, meaning most workplaces send mixed rather than clearly open or clearly restrictive emotional signals when colleagues express emotion, with Millennials and Gen Z together leading a cultural shift.</p>
-      </article>
-
-      <article class="ins">
-        <h3>EQ Is Your Personal Battery Saver</h3>
-        <p class="inbook"><b>In the book:</b> One EQ skill in particular, confidence in managing negative emotions, is significantly associated with lower emotional drain. Average EQ scores in the sample sit around a healthy 3.7 out of 5 (rescaled from a 1&ndash;6 scale).</p>
-        <h4>What actually predicts lower emotional drain (Model 1A, full controls)</h4>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/sec-6-table.png" alt="Regression table: what predicts lower emotional drain" loading="lazy"></figure>
-        <p>The specific, learnable skill of &ldquo;confidence managing negative emotions&rdquo; is what buffers drain &mdash; not overall EQ as a single composite score.</p>
-      </article>
-
-      <article class="ins">
-        <h3>You Can&rsquo;t &ldquo;Out-EQ&rdquo; a Broken System</h3>
-        <p class="inbook"><b>In the book:</b> Even after controlling for individual EQ, the workplace norm that &ldquo;emotions are a weakness&rdquo; remains a powerful, independent predictor of drain and inauthenticity; culture matters independent of personal skill.</p>
-        <h4>&ldquo;Emotions are a weakness at work&rdquo; as a predictor, controlling for EQ (Model 1A)</h4>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/7-DataTable_margin.png" alt="Regression table: emotions-are-weakness norm as a predictor, controlling for EQ" loading="lazy"></figure>
-        <p>This is the single strongest and most robust regression result in the entire dataset. Systemic emotional norms average 3.04 out of 5 across the sample, meaning most workplaces are mixed-to-restrictive rather than clearly emotionally safe.</p>
-      </article>
-
-      <article class="ins">
-        <h3>EQ Sees More, Feels More</h3>
-        <p class="inbook"><b>In the book:</b> In workplaces where emotion is treated as weakness, higher EQ steepens the curve. Emotionally aware people notice the punitive culture more acutely, and that awareness itself carries a cost.</p>
-        <h4>EQ &times; Weakness-Norm interaction (moderation model)</h4>
-        <figure><img src="https://www.talentsmarteq.com/wp-content/uploads/2026/09/8-DataTable_margin.svg" alt="Regression table: EQ by weakness-norm interaction" loading="lazy"></figure>
-        <p>The two other tested interactions &mdash; EQ &times; leader-pressure-to-hide, and confidence-managing-negative-emotions &times; leader-pressure-to-hide &mdash; were not statistically significant (p = .302 and p = .432, respectively). The one reliable moderation effect in the data is specifically EQ awareness sharpening the felt cost of a weakness-punishing culture.</p>
-      </article>
+    <div class="ch4x-list">
+      <h3 class="ch4x-h">Chapter 4 Findings, In Detail</h3>
+      <details class="acc" id="finding-1" open>
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">We already know where we're going.</span><span class="desc"><b>In the book:</b> Roughly 60% of respondents said emotional intelligence will matter even more in the future of work.</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <div class="q navy"><strong><span class="friction-blue">Survey question:</span></strong>&#8220;<em>How important will emotional intelligence (EQ) be for human success at work as AI takes on more tasks?&#8221; (Top-2 = Very + Extremely important) </em></div>
+          <img src="images/chapter4/1-table-eq-future.svg" width="1024" height="424" alt="Table: how important EQ will be as AI takes on more tasks, by generation" loading="lazy">
+          <img src="images/chapter4/eq-future.svg" width="1024" height="583" alt="Chart: EQ will matter more in the future, top-2 % by generation" loading="lazy">
+          <div class="txt"><p>Response breakdown: 26.3% of respondents (313 people) said EQ will be Extremely important, and 33.1% said Important, an additional 23.8% said Moderately important. Millennials and Gen Z lead the way at 62–63%; Boomers and the Silent Generation are lowest, but still roughly half.</p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-2">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">The "Emotion Is Weakness" Myth Is Officially Dying</span><span class="desc"><b>In the book:</b> 35% of working adults still agree that emotions are a weakness at work, and counterintuitively, Millennials hold that belief most strongly, not older generations.</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <div class="q light"><p><strong>Survey question:</strong> &#8220;<em>To what extent do you agree — Showing emotions at work is seen as a sign of weakness&#8221; (Top-2 = Somewhat + Strongly agree)</em></p></div>
+          <img src="images/chapter4/2-table-emotions-weakness.svg" width="1024" height="468" alt="Table: emotions are a weakness at work, by generation" loading="lazy">
+          <img src="images/chapter4/2-chart-emotions-weakness.svg" width="1024" height="570" alt="Chart: emotions are a weakness at work, top-2 % by generation" loading="lazy">
+          <div class="txt"><p>Millennials, the generation most associated with popularizing emotional-intelligence language and &#8220;bringing your whole self to work&#8221;, endorse the emotions-as-weakness view at a higher rate than any other cohort, including Gen X and the Boomers who are often assumed to be the norm&#8217;s originators.</p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-3">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">Leaders Write the Emotional Rule Book</span><span class="desc"><b>In the book:</b> More than half of respondents (53.6%) agree that when leaders hide their emotions, it creates more problems than it solves. Leaders themselves feel the most pressure to suppress: 66% of leaders vs 47% of non-leaders agree leaders feel more pressure to hide emotions than other employees.</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <div class="q light"><p><strong>Survey question:</strong> <em>&#8220;To what extent do you agree — When leaders hide their emotions, it creates more problems than it solves&#8221; (Top-2 = Somewhat + Strongly agree)</em></p></div>
+          <img src="images/chapter4/3-table-leaders-hiding.svg" width="1024" height="424" alt="Table: leaders hiding emotion creates problems, by generation" loading="lazy">
+          <div class="txt"><p>In regression models controlling for age, gender, leader role and level, industry, and other emotional norms (see Model 1A, Appendix), agreement with this item is a moderate, statistically significant predictor of both emotional drain (standardized β = .135, p &lt; .001) and inauthenticity (β = .186, p &lt; .001).</p></div>
+          <p class="lbl">Leaders vs. Non-Leaders: Emotional Drain</p>
+          <img src="images/chapter4/3-DataTable_margin.svg" width="750" height="218" alt="Table: emotional drain, leaders vs. non-leaders" loading="lazy" style="margin-top:-20px">
+          <img src="images/chapter4/leaders-vs-nonleaders.svg" width="1024" height="536" alt="Chart: emotional drain top-2 %, leaders vs. non-leaders" loading="lazy">
+          <div class="txt"><p>Leaders report meaningfully more emotional drain than the people they lead, not less. This is consistent with the chapter&#8217;s “leader-as-thermostat” idea: Leaders don&#8217;t just feel pressure to hide emotion, they also personally absorb more of the organization&#8217;s emotional weight. </p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-4">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">Enlightened but Exhausted: The Cost of Progress</span><span class="desc"><b>In the book:</b> Emotional drain rises steadily by generation, and younger workers hold the most emotionally open values while paying the highest emotional cost for the gap between those values and the workplaces they've inherited.</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <img src="images/chapter4/4-table-emotional-drain-mean.svg" width="1024" height="408" alt="Table: emotional drain mean score by generation" loading="lazy">
+          <img src="images/chapter4/4-chart-emotional-drain-mean.svg" width="1024" height="586" alt="Chart: emotional drain mean score by generation" loading="lazy">
+          <div class="txt"><p>The generational gap is nearly a full point (1.29) between the oldest and youngest cohorts, though the gap between Millennials and Gen Z specifically is small (0.12).</p></div>
+          <p class="lbl">Supporting comparison — emotional-openness measures where younger cohorts diverge from older ones </p>
+          <img src="images/chapter4/4-DataTable_margin.svg" width="750" height="144" alt="Table: emotional-openness measures by generation" loading="lazy" style="margin-top:-20px">
+          <div class="q navy"><p><strong><span class="friction-blue">External context (not from this survey):</span></strong> <b> </b>A 2024 UKG survey found 83% of Gen Z frontline workers report feeling burned out (higher than any other working group). Eagle Hill Consulting found 66% of Gen Z workers report burnout, vs. 37% of Boomers, and that Gen Z and Millennial workers reach peak burnout around age 25 — roughly 17 years earlier than the survey&#8217;s national average of 42.</p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-5">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">Younger Workers Are the Most Emotionally Open</span><span class="desc"><b>In the book:</b> Younger cohorts are more likely to see their workplace as accepting of emotional expression, more likely to say leaders hiding emotions creates problems, and more likely to feel comfortable when colleagues express emotion, with Millennials and Gen Z together leading a cultural shift..</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <p class="lbl">Top-2 Box across three emotional-openness measures, by generation</p>
+          <img src="images/chapter4/5-DataTable_margin.svg" width="750" height="241" alt="Table: top-2 box across three emotional-openness measures, by generation" loading="lazy" style="margin-top:-20px">
+          <img src="images/chapter4/5-chart.svg" width="760" height="463" alt="Chart: three emotional-openness measures by generation" loading="lazy">
+          <div class="txt"><p>Millennials and Gen Z are essentially tied for the lead across all three measures. Millennials edge out Gen Z on two of the three, and the two cohorts trade the top spot on the third by about a point. Both groups run well ahead of Gen X and the Boomers.</p><p>Across three systemic-norm indicators combined into a single index, the average American workplace scores 3.04 out of 5 — squarely in the middle, meaning most workplaces send mixed rather than clearly open or clearly restrictive emotional signals when colleagues express emotion, with Millennials and Gen Z together leading a cultural shift.</p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-6">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">EQ Is Your Personal Battery Saver</span><span class="desc"><b>In the book:</b> One EQ skill in particular, confidence in managing negative emotions, is significantly associated with lower emotional drain. Average EQ scores in the sample sit around a healthy 3.7 out of 5 (rescaled from a 1–6 scale).</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <p class="lbl">What actually predicts lower emotional drain (Model 1A, full controls)</p>
+          <img src="images/chapter4/sec-6-table.png" width="750" height="160" alt="Regression table: what predicts lower emotional drain" loading="lazy" style="margin-top:-15px">
+          <div class="txt"><p>The specific, learnable skill of &#8220;confidence managing negative emotions&#8221; is what buffers drain — not overall EQ as a single composite score.</p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-7">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">You Can't “Out-EQ” a Broken System</span><span class="desc"><b>In the book:</b> Even after controlling for individual EQ, the workplace norm that "emotions are a weakness" remains a powerful, independent predictor of drain and inauthenticity; culture matters independent of personal skill.</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <p class="lbl">"Emotions are a weakness at work" as a predictor, controlling for EQ (Model 1A)</p>
+          <img src="images/chapter4/7-DataTable_margin.png" width="750" height="177" alt="Regression table: emotions-are-a-weakness norm as a predictor, controlling for EQ" loading="lazy" style="margin-top:-20px">
+          <div class="txt"><p>This is the single strongest and most robust regression result in the entire dataset. Systemic emotional norms average 3.04 out of 5 across the sample, meaning most workplaces are mixed-to-restrictive rather than clearly emotionally safe.</p></div>
+        </div>
+      </details>
+      <details class="acc" id="finding-8">
+        <summary><span class="t"><span class="tt" role="heading" aria-level="3">EQ Sees More, Feels More</span><span class="desc"><b>In the book:</b> In workplaces where emotion is treated as weakness, higher EQ steepens the curve. Emotionally aware people notice the punitive culture more acutely, and that awareness itself carries a cost.</span></span><span class="ic" aria-hidden="true"></span></summary>
+        <div class="body">
+          <p class="lbl">EQ × Weakness-Norm interaction (moderation model) </p>
+          <img src="images/chapter4/8-DataTable_margin.svg" width="750" height="103" alt="Regression table: EQ by weakness-norm interaction" loading="lazy" style="margin-top:-20px">
+          <div class="txt"><p>The two other tested interactions — EQ × leader-pressure-to-hide, and confidence-managing-negative-emotions × leader-pressure-to-hide — were not statistically significant (p = .302 and p = .432, respectively). The one reliable moderation effect in the data is specifically EQ awareness sharpening the felt cost of a weakness-punishing culture.</p></div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -704,6 +778,14 @@ a.card{text-decoration:none}
   dlg.querySelector('.x').addEventListener('click', function () { dlg.close(); });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
 })();
+</script>
+<script>
+// one Chapter 4 finding open at a time
+document.querySelectorAll('details.acc').forEach(function (d) {
+  d.addEventListener('toggle', function () {
+    if (d.open) document.querySelectorAll('details.acc[open]').forEach(function (o) { if (o !== d) o.open = false; });
+  });
+});
 </script>
 </body>
 </html>
