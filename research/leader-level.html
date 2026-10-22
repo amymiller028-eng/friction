@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EQ &amp; Leader Level | EQ Research &amp; Insights</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  /* swap these two to the real site faces once we have them */
+  --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --ground:#F7FAFC; --surface:#FFFFFF; --raised:#EDF3F9;
+  --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6F1;
+  --navy:#002D61; --navy-deep:#001C3E; --you:#002D61;
+  --grp:#00885F; --grp-ink:#00694A; --bright:#0ACC8B;
+  --curve:#B9CFE6; --curve-line:#7FA3C7;
+  --btn-bg:#002D61; --btn-ink:#FFFFFF; --btn-hover:#013C80;
+  --aside:#F0F6FB;
+  --focus:#0069C2;
+  --warn:#8A5300; --warn-bg:#FFF5E4; --warn-hair:#EFD7AB;
+  --onnavy:#E7F0FA;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#091622; --surface:#10202F; --raised:#182D40;
+    --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+    --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+    --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
+    --curve:#274966; --curve-line:#4E779E;
+    --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
+    --aside:#152738;
+    --focus:#66B2FF;
+    --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
+    --onnavy:#E7F0FA;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#091622; --surface:#10202F; --raised:#182D40;
+  --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+  --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+  --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
+  --curve:#274966; --curve-line:#4E779E;
+  --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
+  --aside:#152738;
+  --focus:#66B2FF;
+  --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
+  --onnavy:#E7F0FA;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--grp-ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.nav{background:var(--navy-deep);color:var(--onnavy)}
+.nav .in{max-width:900px;margin:0 auto;padding:.85rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.mark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.05rem;color:#fff}
+.mark span{color:var(--bright)}
+.nav a{color:#C6DAF0;font-size:.83rem;text-decoration:none}.nav a:hover{color:#fff}
+main{max-width:900px;margin:0 auto;padding:2.2rem 1.3rem 3rem}
+.eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grp-ink);margin:0 0 .5rem}
+h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.12;margin:0 0 1.4rem;text-wrap:balance}
+figure{margin:0 0 2rem;background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+h2{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin:1.8rem 0 .6rem}
+ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0}
+p{margin:0}
+.cmp{width:100%;border-collapse:collapse;margin:.9rem 0 .7rem;font-size:.92rem;background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+.cmp th,.cmp td{padding:.55rem .8rem;text-align:left;border-bottom:1px solid var(--hair)}
+.cmp thead th{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;background:var(--raised)}
+.cmp td.n,.cmp th.n{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.cmp tr:last-child td{border-bottom:0}
+.cmp .pk{font-weight:600;color:var(--grp-ink)}
+.note{font-size:.85rem;color:var(--ink-2);margin:.6rem 0 0}
+.foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
+.foot p{margin:.3rem 0}
+/* hidden fact on the CEO point: grows on hover, click slides a box out to the right */
+.figwrap{position:relative;margin:0 0 2rem}
+.figwrap figure{margin:0}
+.hot{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:2px solid transparent;background:transparent;cursor:pointer;z-index:2;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.hot:hover,.hot:focus-visible,.hot[aria-expanded="true"]{transform:scale(1.35);border-color:#00A878;background:rgba(0,168,120,.12)}
+.pop{position:absolute;z-index:1;width:300px;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1rem 2rem 1rem 1.1rem;box-shadow:0 10px 28px rgba(0,28,62,.12);animation:popR .3s ease}
+.pop[hidden]{display:none}
+.pop p{font-size:.88rem;line-height:1.5;color:var(--ink-2);margin:0}
+.pop .pop-h{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 .3rem}
+.pop-x{position:absolute;top:.4rem;right:.5rem;border:0;background:none;font-size:1.4rem;line-height:1;color:var(--ink-3);cursor:pointer;padding:.2rem .4rem}
+.pop-x:hover{color:var(--ink)}
+@keyframes popR{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hot,.pop{transition:none;animation:none}}
+@media (max-width:640px){.pop{position:static;width:auto;margin-top:.6rem;box-shadow:none}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="in">
+  <div class="mark">TalentSmart<span>EQ</span></div>
+  <a href="../index.html">&larr; EQ Research &amp; Insights</a>
+</div></header>
+<main>
+  <h1>EQ &amp; Leader Level</h1>
+  <div class="figwrap">
+    <figure><img src="../images/research/2-leader-level-eq-climbs.png" alt="Line chart of average EQ by job level, rising from employee to vice president and dipping for CEOs"></figure>
+  </div>
+  <h2>What the data shows</h2>
+  <ul>
+    <li>Average EQ rises at every step of the management ladder: employees 73.6, supervisors 75.0, managers 76.0, directors 76.8 and vice presidents 77.0.</li>
+    <li>Scores level off through senior vice president (77.0) and dip for C-level executives (76.7) and CEOs (75.4).</li>
+  </ul>
+  <h2>How this compares to our 2005 findings</h2>
+  <p>In 2005 we reported in <em>Harvard Business Review</em> that EQ peaked at the manager level and dropped at each step above it, with CEOs scoring lowest (<a href="https://hbr.org/2005/12/heartless-bosses" target="_blank" rel="noopener">&ldquo;Heartless Bosses?&rdquo;</a>, Bradberry &amp; Greaves). Today&rsquo;s data tells a different story. Scores keep climbing through vice president and level off at senior vice president. Then, as in 2005, EQ dips at the top of the ladder, for C-level executives and CEOs.</p>
+  <table class="cmp">
+    <thead><tr><th scope="col">Level</th><th scope="col" class="n">2005</th><th scope="col" class="n">2021&ndash;2026</th><th scope="col" class="n">Change</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Employee (individual contributor)</th><td class="n">74.0</td><td class="n">73.6</td><td class="n">&minus;0.4</td></tr>
+      <tr><th scope="row">Supervisor</th><td class="n">77.0</td><td class="n">75.0</td><td class="n">&minus;2.0</td></tr>
+      <tr><th scope="row">Manager</th><td class="n pk">77.5</td><td class="n">76.0</td><td class="n">&minus;1.5</td></tr>
+      <tr><th scope="row">Director</th><td class="n">74.5</td><td class="n">76.8</td><td class="n">+2.3</td></tr>
+      <tr><th scope="row">Vice president</th><td class="n">72.5</td><td class="n pk">77.0</td><td class="n">+4.5</td></tr>
+      <tr><th scope="row">Senior vice president (senior executive)</th><td class="n">71.0</td><td class="n pk">77.0</td><td class="n">+6.0</td></tr>
+      <tr><th scope="row">CEO</th><td class="n">70.5</td><td class="n">75.4</td><td class="n">+4.9</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Highlighted scores mark each study&rsquo;s peak. The 2005 study covered more than 100,000 people, including 1,000 CEOs; today&rsquo;s covers 731,369 assessments. Job titles were grouped differently in each study, and the 2005 study had no separate C-level group (76.7 today).</p>
+  <h2>What it means</h2>
+  <p>EQ tracks responsibility, and that relationship has changed. In 2005, TalentSmart research published in <em>Harvard Business Review</em> found EQ peaking at the manager level and bottoming out with CEOs, who scored below individual contributors. Today the climb continues to vice president, and senior leaders score 4.5 to 6 points higher than their 2005 counterparts while individual contributor scores are essentially unchanged. EQ still dips at the very top, though far less than it once did. This is an association, not proof of cause, but it fits nearly two decades of attention to EQ in leadership development and in how organizations choose who to promote.</p>
+  <div class="foot">
+    <p>Source: 731,369 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Scores are on a 0&ndash;100 scale.</p>
+    <p>2005 figures: Bradberry, T. &amp; Greaves, J. (2005, December). <a href="https://hbr.org/2005/12/heartless-bosses" target="_blank" rel="noopener">Heartless Bosses?</a> <em>Harvard Business Review</em>.</p>
+    <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+  </div>
+</main>
+</body>
+</html>

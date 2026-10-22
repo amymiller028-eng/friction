@@ -1,0 +1,473 @@
+{
+ "n_all": 1188,
+ "n_named": 1000,
+ "n_no_answer": 61,
+ "n_other": 127,
+ "cores": [
+  {
+   "name": "Angry",
+   "n": 670,
+   "pct": 67.0,
+   "pct_all": 56.397,
+   "split": {
+    "Leaders": 59.305,
+    "Non-leaders": 74.364,
+    "Women": 72.385,
+    "Men": 62.016,
+    "p_role": 5.872994198439887e-07,
+    "p_gender": 0.0006583525327476039
+   },
+   "intensity": {
+    "High": 3.7,
+    "Medium": 64.6,
+    "Low": 0.1
+   },
+   "words": [
+    {
+     "name": "Rage",
+     "intensity": "High",
+     "n": 36,
+     "pct": 3.6,
+     "quotes": [
+      "Rage because it destroys team effort",
+      "Rage...because it affects the work",
+      "Rage.  I work with customers so it's not good for them to see that."
+     ]
+    },
+    {
+     "name": "Hate",
+     "intensity": "High",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Anger",
+     "intensity": "Medium",
+     "n": 622,
+     "pct": 62.2,
+     "quotes": [
+      "Anger. I just think it's unprofessional to bring anger or negativity to work.",
+      "Anger because it has a negative effect on those around you",
+      "Anger, because it’s a public space."
+     ]
+    },
+    {
+     "name": "Mad",
+     "intensity": "Medium",
+     "n": 7,
+     "pct": 0.7,
+     "quotes": [
+      "Because people make me mad and I can't do anything",
+      "It would be most inappropriate to be mad or angry at work.",
+      "My angre cuz i cant get mad so i hold everything in"
+     ]
+    },
+    {
+     "name": "Upset",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Angry and upset because it's a workplace"
+     ]
+    },
+    {
+     "name": "Frustration",
+     "intensity": "Medium",
+     "n": 25,
+     "pct": 2.5,
+     "quotes": [
+      "Any type of frustration because of risk of losing job",
+      "Anger and frustration do no good at work. It discourages other employees and production decreases",
+      "Anger and frustration feels the most off limits because it effects productivity"
+     ]
+    },
+    {
+     "name": "Disgust",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Disdain",
+     "intensity": "Medium",
+     "n": 2,
+     "pct": 0.2,
+     "quotes": []
+    },
+    {
+     "name": "Resentment",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Bitterness",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Irritation",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Irritation/frustration, because I work retail."
+     ]
+    }
+   ],
+   "quotes": [
+    "Anger. I just think it's unprofessional to bring anger or negativity to work.",
+    "Anger because it has a negative effect on those around you",
+    "Anger, because it’s a public space."
+   ]
+  },
+  {
+   "name": "Afraid",
+   "n": 156,
+   "pct": 15.6,
+   "pct_all": 13.131,
+   "split": {
+    "Leaders": 20.041,
+    "Non-leaders": 11.35,
+    "Women": 12.343,
+    "Men": 18.217,
+    "p_role": 0.00021659027895409437,
+    "p_gender": 0.013284491732833147
+   },
+   "intensity": {
+    "High": 1.0,
+    "Medium": 13.1,
+    "Low": 1.8
+   },
+   "words": [
+    {
+     "name": "Apprehension",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Fear",
+     "intensity": "High",
+     "n": 10,
+     "pct": 1.0,
+     "quotes": [
+      "Fear. Because when something needs done even if I'm afraid to do it I have to do it because it's a job and I need to get it done",
+      "Fear\nas a leader myself, i ought not  to show fear in certain difficult situations in order not to discourage or demotivate my subordinates",
+      "Anitety afraid I'll make a mistake."
+     ]
+    },
+    {
+     "name": "Anxiety",
+     "intensity": "Low",
+     "n": 12,
+     "pct": 1.2,
+     "quotes": [
+      "Some anxiety because produce more uncertainty life and doubt",
+      "Anxiety because it can interfere with your ability to do your job.",
+      "Sadness anger tiredness anxiety"
+     ]
+    },
+    {
+     "name": "Vulnerability",
+     "intensity": "Medium",
+     "n": 123,
+     "pct": 12.3,
+     "quotes": [
+      "We are not supported At All by leadership. Therefore, anything that makes us vulnerable or question them is off the table such as anger or sadness.",
+      "Vulnerability — seen as weakness at work.",
+      "The big one would be vulnerability. Nobody wants to be seen as vulnerable"
+     ]
+    },
+    {
+     "name": "Weakness",
+     "intensity": "Medium",
+     "n": 7,
+     "pct": 0.7,
+     "quotes": [
+      "It s seen as unprofessional showwing it might be considered weak",
+      "Weakness and anger because they lead to negative work results.",
+      "Its often as asing of weakness or lack of resilience , unlike anger or vulnerability ."
+     ]
+    },
+    {
+     "name": "Helplessness",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Helpless. it is considered weak"
+     ]
+    },
+    {
+     "name": "Nervousness",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Stress",
+     "intensity": "Low",
+     "n": 4,
+     "pct": 0.4,
+     "quotes": [
+      "Stress the emotion at work because i have to finish cleaning rooms on time"
+     ]
+    },
+    {
+     "name": "Uncertainty",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Professionalism is equated with emotional control: Admitting uncertainty, fear, or personal struggle can be seen as a weakness or lack of competence."
+     ]
+    }
+   ],
+   "quotes": [
+    "We are not supported At All by leadership. Therefore, anything that makes us vulnerable or question them is off the table such as anger or sadness.",
+    "Vulnerability — seen as weakness at work.",
+    "The big one would be vulnerability. Nobody wants to be seen as vulnerable"
+   ]
+  },
+  {
+   "name": "Sad",
+   "n": 143,
+   "pct": 14.3,
+   "pct_all": 12.037,
+   "split": {
+    "Leaders": 13.906,
+    "Non-leaders": 14.677,
+    "Women": 16.946,
+    "Men": 11.822,
+    "p_role": 0.7965073102443118,
+    "p_gender": 0.026700195242095253
+   },
+   "intensity": {
+    "High": 1.2,
+    "Medium": 13.4,
+    "Low": 0.3
+   },
+   "words": [
+    {
+     "name": "Depression",
+     "intensity": "High",
+     "n": 3,
+     "pct": 0.3,
+     "quotes": [
+      "Depression because it could be from personal issues",
+      "Sadness, depression, vulnerability. No one really wants to hear how you actually feel, they just want to move on"
+     ]
+    },
+    {
+     "name": "Grief",
+     "intensity": "High",
+     "n": 5,
+     "pct": 0.5,
+     "quotes": [
+      "Sadness, like crying or grieving, because it makes others uncomfortable, and causes distraction.",
+      "Grief, anger, rage - not work appropriate"
+     ]
+    },
+    {
+     "name": "Hopelessness",
+     "intensity": "High",
+     "n": 4,
+     "pct": 0.4,
+     "quotes": [
+      "I don’t work but when I did it was hopeless",
+      "Vulnerability and anger and sadness and hopelessness"
+     ]
+    },
+    {
+     "name": "Sadness",
+     "intensity": "Medium",
+     "n": 134,
+     "pct": 13.4,
+     "quotes": [
+      "Anger and sadness because it affects the customers experience.",
+      "Sadness. It's difficult to express it in a work setting",
+      "Sadness because work requires alertness with no distractions."
+     ]
+    },
+    {
+     "name": "Unhappiness",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Unhappy because of the stress and employees"
+     ]
+    },
+    {
+     "name": "Disappointment",
+     "intensity": "Low",
+     "n": 2,
+     "pct": 0.2,
+     "quotes": [
+      "Anger or disappointment, because our parent company doesn't like critical feedback.",
+      "Feeling disappointed or indifferent"
+     ]
+    }
+   ],
+   "quotes": [
+    "Anger and sadness because it affects the customers experience.",
+    "Sadness. It's difficult to express it in a work setting",
+    "Sadness because work requires alertness with no distractions."
+   ]
+  },
+  {
+   "name": "Ashamed",
+   "n": 1,
+   "pct": 0.1,
+   "pct_all": 0.084,
+   "split": {
+    "Leaders": 0.204,
+    "Non-leaders": 0.0,
+    "Women": 0.0,
+    "Men": 0.194,
+    "p_role": 0.9824349237705224,
+    "p_gender": 1.0
+   },
+   "intensity": {
+    "High": 0.0,
+    "Medium": 0.0,
+    "Low": 0.1
+   },
+   "words": [
+    {
+     "name": "Shyness",
+     "intensity": "Low",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    }
+   ],
+   "quotes": []
+  },
+  {
+   "name": "Happy",
+   "n": 85,
+   "pct": 8.5,
+   "pct_all": 7.155,
+   "split": {
+    "Leaders": 11.656,
+    "Non-leaders": 5.479,
+    "Women": 6.067,
+    "Men": 10.853,
+    "p_role": 0.0007045046251475442,
+    "p_gender": 0.009813799684510896
+   },
+   "intensity": {
+    "High": 0.3,
+    "Medium": 8.2,
+    "Low": 0.0
+   },
+   "words": [
+    {
+     "name": "Excitement",
+     "intensity": "High",
+     "n": 3,
+     "pct": 0.3,
+     "quotes": []
+    },
+    {
+     "name": "Joy",
+     "intensity": "Medium",
+     "n": 52,
+     "pct": 5.2,
+     "quotes": []
+    },
+    {
+     "name": "Happiness",
+     "intensity": "Medium",
+     "n": 15,
+     "pct": 1.5,
+     "quotes": [
+      "Happiness. The people around me hate to see me smiling or expressing any kind of joy or love for myself."
+     ]
+    },
+    {
+     "name": "Gratitude",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": []
+    },
+    {
+     "name": "Hope",
+     "intensity": "Medium",
+     "n": 1,
+     "pct": 0.1,
+     "quotes": [
+      "Hope. Having expectations based on optimism is not productive."
+     ]
+    },
+    {
+     "name": "Love",
+     "intensity": "Medium",
+     "n": 11,
+     "pct": 1.1,
+     "quotes": [
+      "Love because you usually dont need to show that emotion when working.",
+      "Attraction, flirting. There are state laws which govern interactions at work. Outside of work is different."
+     ]
+    },
+    {
+     "name": "Pride",
+     "intensity": "Medium",
+     "n": 2,
+     "pct": 0.2,
+     "quotes": [
+      "Pride because it is seen a ego"
+     ]
+    }
+   ],
+   "quotes": [
+    "Happiness. The people around me hate to see me smiling or expressing any kind of joy or love for myself.",
+    "Joy. Because there is not much place to be happy about so you can’t really be smiling a lot."
+   ]
+  }
+ ],
+ "n_says_none": 48,
+ "n_outside": 11,
+ "outside": [
+  [
+   "lust",
+   4
+  ],
+  [
+   "sarcasm",
+   2
+  ],
+  [
+   "curiosity",
+   1
+  ],
+  [
+   "wonder",
+   1
+  ],
+  [
+   "zest",
+   1
+  ],
+  [
+   "indecisiveness",
+   1
+  ],
+  [
+   "feeling unappreciated",
+   1
+  ]
+ ],
+ "n_multi": 50
+}
